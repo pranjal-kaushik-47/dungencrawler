@@ -1,10 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <link href="styles.css" rel="stylesheet">
-    <script defer src="scripts.js"></script>
-    <script defer src="data/items.json"></script>
-</head>
+<script setup lang="ts">
+</script>
+
+<template>
 <body>
     <div class="game-description">
         <h1>Escape the Dungeon</h1>
@@ -78,6 +75,4 @@
         </div>
     </div>
 </body>
-<footer>
-</footer>
-</html>
+</template>

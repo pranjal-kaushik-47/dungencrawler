@@ -1,0 +1,7 @@
+:root {
+  --default-background: rgb(168, 168, 168);
+  --default-background-dark: gainsboro;
+  --button-background: transparent;
+  --button-active-hover-background: rgb(169, 168, 168);
+  --button-inactive-hover-background: transparent;
+}

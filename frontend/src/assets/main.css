@@ -1,0 +1,186 @@
+@import './base.css';
+
+table {
+  table-layout: fixed;
+  border-collapse: collapse;
+  width: 600px;
+}
+
+th {
+  border: 1px solid grey;
+  color: rgb(146, 143, 143);
+  height: 35px;
+
+}
+
+td {
+  border: 1px solid grey;
+  color: rgb(146, 143, 143);
+  height: 50px;
+}
+
+body{
+  margin: 0px;
+}
+
+h1{
+  color: gainsboro;
+  margin: 0px;
+}
+
+h2{
+  color: rgb(146, 143, 143);
+  margin: 0px;
+}
+
+textarea{
+  resize: none;
+  box-sizing: border-box;
+}
+
+
+button {
+  border-radius: 0px;
+  border: 2px solid black;
+  background-color: transparent;
+  padding: 10px;
+  text-align: center;
+  font-size: 15px;
+  border-radius: 5px;
+  margin: 2px;
+  }
+
+td button {
+  height: 30px;
+  width: 40px;
+  font-size: 10px;
+  padding: 0px;
+  margin: 0px;
+
+}
+
+.item-button{
+  background-color: blueviolet;
+}
+
+.item-button:hover{
+  background-color: rgb(169, 98, 234);
+}
+
+button:hover {
+  background-color: rgb(169, 168, 168);
+}
+
+button:disabled {
+  text-decoration: line-through;
+}
+
+button:disabled:hover {
+  background-color: transparent;
+}
+
+body{
+  height: 100%;
+  background-color: gainsboro;
+}
+
+.game-description{
+  padding: 10px;
+  background-color: rgb(168, 168, 168);
+  display: flex;
+  border-bottom: 1px solid rgb(63, 62, 62);
+}
+
+.game-description h1{
+  color: dimgray;
+}
+
+.game-description h1{
+  text-align: center;
+  font-size: 30px;
+  width: 100%;
+}
+
+.health{
+  background-color: dimgrey;
+  height: 20px;
+  width: 100%;
+}
+
+.healthbar{
+  background-color: rgb(146, 5, 5);
+  height: 20px;
+  width: 100%;
+}
+
+.interactions{
+  padding: 10px;
+  text-align: center;
+  font-size: 15px;
+  background-color: gainsboro;
+  margin: 0px;
+  border-bottom: 1px solid rgb(63, 62, 62);
+}
+
+.interactions .actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 10px;
+}
+
+.interactions .movements {
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+}
+
+.interactions .outcome textarea{
+  width: 100%;
+  height: 100px;
+  font-size: 20px;
+  text-align: center;
+}
+
+.bottom-window {
+  display: flex;
+}
+
+.inventory{
+  padding: 10px;
+  text-align: center;
+  font-size: 15px;
+  background-color: gainsboro;
+  margin: 0px;
+  width: 50%;
+  border-right: 1px solid rgb(63, 62, 62);
+}
+
+.inventory .items{
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+  overflow-y: auto;
+  height: 300px;
+}
+
+.cover{
+  width: 50%;
+  max-height: 350px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background: rgb(204,204,204);
+  background: radial-gradient(circle, rgba(204,204,204,1) 0%, rgba(0,0,0,1) 50%, rgba(204,204,204,1) 100%); 
+}
+
+.cover img{
+  object-fit: cover;
+  height: 100%;
+}
+
+.small{
+  font-size: 10px;
+}
