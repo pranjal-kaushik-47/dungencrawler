@@ -1,0 +1,90 @@
+level
+    theme theme._id
+    level_start : 14
+    level_end : 34
+    map
+        [cell._id]
+
+cell
+    event ... event._id
+    event_prob .... %
+    npc .. [npc._id]
+    quest .. quest._id
+    items .. [item._id]
+
+theme
+    temprature
+    humidity
+    climate
+    biome
+    factions
+
+
+quest
+
+npc
+
+event:
+    type
+    effected_object
+    object_update
+    desc
+
+items
+    name
+    desc
+    spawn_prob
+    event_trigger_prob
+    event event._id
+    weight
+    type
+    cannon_item
+    properities [properities.id]
+
+properities
+    ....
+
+
+inventory : 
+    item .. item._id
+    item_count
+    ...
+
+player
+    inventory._id
+    equiped_item:
+        [item._id]
+    health
+        max
+        current
+    strength
+    mana
+    carrying_cap
+    current_cell
+    current_level .. level._id
+
+player_snapshot: 
+    level._id
+    cell._id
+    timestamp
+    --copy of player obj (no id full obj)--
+
+game_logs
+    level._id
+    cell._id
+    event._id
+    [active_quests._id]
+    player_snapshot._id
+
+
+
+
+# Text information
+
+level_theme_llm
+    level._id
+    theme_text_genrated .. TEXT
+
+story_point_llm
+    game_logs._id
+    story_text_genrated .. TEXT
