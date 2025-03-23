@@ -1,0 +1,47 @@
+{
+    "legs": {
+        "prob": 10,
+        "id": "legs",
+        "name": "Legs",
+        "description": "a pair of legs",
+        "outcome": "Ah, a transition. A crawler, once crippled by its lack of legs, now receives a new set. Fascinating. Legs, after all, are more than mere tools for movement. They are the foundation of mobility, expression, and even identity. ",
+        "actionComment": "Finally!! you got your legs back... how about you move your ass!!",
+        "move": 1,
+        "trigger": false,
+        "maxEquipable": 1
+    },
+    "knife": {
+        "prob": 5,
+        "id": "knife",
+        "name": "Knife",
+        "description": "a knife",
+        "outcome": "A knife. How poetic. Because when you’re a crawler, lacking both a purpose and, frankly, any coherent idea of self-preservation, the logical next step is, of course, a sharp object. Nothing says 'advanced technology' like a crude, primitive tool designed for cutting things",
+        "actionComment": "You swing your knife.",
+        "damage": 0.1,
+        "trigger": false,
+        "onetime": false,
+        "maxEquipable": 10
+    },
+    "mace": {
+        "prob": 5,
+        "id": "mace",
+        "name": "Mace",
+        "description": "a Mace",
+        "outcome": "A mace. How poetic. Because when you’re a crawler, lacking both a purpose and, frankly, any coherent idea of self-preservation, the logical next step is, of course, a sharp object. Nothing says 'advanced technology' like a crude, primitive tool designed for cutting things",
+        "actionComment": "You swing your Mace.",
+        "damage": 0.5,
+        "trigger": false,
+        "onetime": false,
+        "maxEquipable": 3
+    },
+    "selfHarm": {
+        "prob": 5,
+        "id": "selfHarm", 
+        "name": "Feel Somthing",
+        "description": "slap yourself",
+        "actionComment": "In a moment of confusion, your own hand betrays you. You take 1 point of damage from the force of your own punch!",
+        "damage": -0.01,
+        "trigger": true,
+        "onetime": true
+    }
+}
