@@ -42,7 +42,7 @@ textarea{
 button {
   border-radius: 0px;
   border: 2px solid black;
-  background-color: transparent;
+  background-color: var(--button-background);
   padding: 10px;
   text-align: center;
   font-size: 15px;
@@ -68,7 +68,7 @@ td button {
 }
 
 button:hover {
-  background-color: rgb(169, 168, 168);
+  background-color: var(--button-active-hover-background);
 }
 
 button:disabled {
@@ -76,17 +76,17 @@ button:disabled {
 }
 
 button:disabled:hover {
-  background-color: transparent;
+  background-color: var(--button-inactive-hover-background);
 }
 
 body{
   height: 100%;
-  background-color: gainsboro;
+  background-color: var(--default-background);
 }
 
 .game-description{
   padding: 10px;
-  background-color: rgb(168, 168, 168);
+  background-color: var(--default-background-dark);
   display: flex;
   border-bottom: 1px solid rgb(63, 62, 62);
 }
@@ -102,13 +102,13 @@ body{
 }
 
 .health{
-  background-color: dimgrey;
+  background-color: var(--default-background);
   height: 20px;
   width: 100%;
 }
 
 .healthbar{
-  background-color: rgb(146, 5, 5);
+  background-color: var(--blood-color);
   height: 20px;
   width: 100%;
 }
@@ -117,7 +117,7 @@ body{
   padding: 10px;
   text-align: center;
   font-size: 15px;
-  background-color: gainsboro;
+  background-color: var(--default-background);
   margin: 0px;
   border-bottom: 1px solid rgb(63, 62, 62);
 }
@@ -150,7 +150,7 @@ body{
   padding: 10px;
   text-align: center;
   font-size: 15px;
-  background-color: gainsboro;
+  background-color: var(--default-background);
   margin: 0px;
   width: 50%;
   border-right: 1px solid rgb(63, 62, 62);

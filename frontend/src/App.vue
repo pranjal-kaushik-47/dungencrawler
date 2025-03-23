@@ -71,7 +71,6 @@
             </div>
         </div>
         <div class="cover">
-            <img src="cover.png">
         </div>
     </div>
 </body>
