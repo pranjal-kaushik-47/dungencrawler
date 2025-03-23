@@ -2,7 +2,7 @@ import heapq
 import random
 from collections import deque
 
-from database.items import spawn_items
+from ..database.items import spawn_items  # type: ignore
 
 
 class Cell:

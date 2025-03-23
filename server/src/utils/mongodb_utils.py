@@ -2,7 +2,7 @@ import os
 from typing import Any, Dict, List, Optional
 
 from dotenv import load_dotenv
-from pymongo import MongoClient
+from pymongo import MongoClient  # type: ignore
 from pymongo.collection import Collection
 from pymongo.database import Database
 
@@ -10,8 +10,6 @@ load_dotenv()
 
 MONGODB_CONNECTION_STRING = os.getenv("MONGODB_CONNECTION_STRING")
 DATABASE_NAME = os.getenv("DATABASE_NAME")
-
-
 
 class MongoDBUtil:
     def __init__(self):
