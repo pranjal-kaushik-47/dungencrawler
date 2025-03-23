@@ -2,9 +2,7 @@ import json
 import random
 from functools import lru_cache
 
-from src.utils.mongodb_utils import MongoDBUtil
-
-db_util = MongoDBUtil()
+from utils.mongodb_utils import MongoDBUtil
 
 
 def get_all_documents(collection_name):
@@ -13,16 +11,22 @@ def get_all_documents(collection_name):
 @lru_cache(maxsize=128)
 def _get_all_documents_cached(collection_name):
     # Get all documents with their spawn probabilities
-    collection = db_util.get_collection(collection_name)
-    all_items = list(collection.find({}, {"name": 1, "spawn_prob": 1, "_id": 1}))
-    return all_items
+    db_util = MongoDBUtil()
+    try:
+        collection = db_util.get_collection(collection_name)
+        all_items = list(collection.find({}, {"name": 1, "spawn_prob": 1, "_id": 1}))
+        return all_items
+    except Exception as e:
+        print("Error in _get_all_documents_cached ", e)
+    finally:
+        db_util.close_connection()
 
-def spawn_items(total_items=10):
+def spawn_items(max_items=10):
     """
     Randomly selects items from a MongoDB collection based on each document's spawn_prob.
     
     Parameters:
-    - total_items: Total number of items to spawn (default: 10)
+    - max_items: Max number of items to spawn (default: 10)
     
     Returns:
     - List of spawned items
@@ -36,7 +40,7 @@ def spawn_items(total_items=10):
     spawned_items = []
     
     # Perform independent probability checks for each slot
-    for _ in range(total_items):
+    for _ in range(max_items):
         # For each slot, evaluate all items independently based on their spawn probabilities
         candidates = []
         

@@ -9,15 +9,18 @@ from pymongo.database import Database
 load_dotenv()
 
 MONGODB_CONNECTION_STRING = os.getenv("MONGODB_CONNECTION_STRING")
+DATABASE_NAME = os.getenv("DATABASE_NAME")
+
+
 
 class MongoDBUtil:
-    def __init__(self, database_name: str):
+    def __init__(self):
         """
         Initializes MongoDB connection.
         :param database_name: Name of the database
         """
         self.client : MongoClient = MongoClient(MONGODB_CONNECTION_STRING)
-        self.database: Database = self.client[database_name]
+        self.database: Database = self.client[DATABASE_NAME]
     
     def get_collection(self, collection_name: str) -> Collection:
         """Gets a collection by name."""
