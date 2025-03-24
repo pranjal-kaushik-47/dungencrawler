@@ -4,7 +4,7 @@
 <template>
 <body>
     <div class="game-description">
-        <h1>Escape the Dungeon</h1>
+        <h1>Escape the Dungeon 2</h1>
     </div>
     <div class="health" id="health">
         <div class="healthbar" id="healthbar"></div>
@@ -32,12 +32,15 @@
             <h2>Inventory</h2>
             <div class="items">
                 <table id="invTable">
-                    <tr>
-                        <th>Items</th>
-                        <th>Description</th>
-                        <th style="width: 100px;">Use</th>
-                    </tr>
-                    <tr>
+                    <thead>
+                        <tr>
+                            <th>Items</th>
+                            <th>Description</th>
+                            <th style="width: 100px;">Use</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
                         <td>-</td>
                         <td>-</td>
                         <td>-</td>
@@ -67,6 +70,7 @@
                         <td>-</td>
                         <td>-</td>
                     </tr>
+                    </tbody>
                 </table>
             </div>
         </div>
