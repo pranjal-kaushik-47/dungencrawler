@@ -4,7 +4,7 @@
 <template>
 <body>
     <div class="game-description">
-        <h1>Escape the Dungeon 2</h1>
+        <h1>Escape the Dungeon 4</h1>
     </div>
     <div class="health" id="health">
         <div class="healthbar" id="healthbar"></div>
