@@ -1,9 +1,10 @@
 :root {
   --default-background: rgb(168, 168, 168);
-  --default-background-dark: gainsboro;
+  --default-background-dark: rgb(192, 183, 183);
   --button-background: transparent;
   --button-active-hover-background: rgb(169, 168, 168);
   --button-inactive-hover-background: transparent;
   --blood-color: rgb(146, 5, 5);
+  --textarea-color: rgb(168, 168, 168);
   
 }
