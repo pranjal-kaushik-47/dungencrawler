@@ -2,9 +2,10 @@
   --default-background: rgb(168, 168, 168);
   --default-background-dark: rgb(192, 183, 183);
   --button-background: transparent;
-  --button-active-hover-background: rgb(169, 168, 168);
+  --button-active-hover-background: rgb(219, 215, 215);
   --button-inactive-hover-background: transparent;
   --blood-color: rgb(146, 5, 5);
+  --container-color: rgb(206, 125, 125);
   --textarea-color: rgb(168, 168, 168);
   
 }

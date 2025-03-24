@@ -8,7 +8,7 @@
 export default {
     props: {
         health: {
-            type: String
+            type: Number
         }
     },
     computed: {

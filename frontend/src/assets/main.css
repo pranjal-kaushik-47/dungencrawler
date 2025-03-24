@@ -60,21 +60,12 @@ button {
   margin: 2px;
   }
 
-td button {
-  height: 30px;
+.small-button {
+  height: 40px;
   width: 40px;
-  font-size: 10px;
+  font-size: 20px;
   padding: 0px;
-  margin: 0px;
-
-}
-
-.item-button{
-  background-color: blueviolet;
-}
-
-.item-button:hover{
-  background-color: rgb(169, 98, 234);
+  margin: 2px;
 }
 
 button:hover {
@@ -117,32 +108,46 @@ body{
   text-align: center;
   font-size: 15px;
   background-color: var(--default-background);
-  margin: 0px;
-  border-bottom: 1px solid rgb(63, 62, 62);
+  margin: 10px;
 }
 
-.big{
-  height: 350px
+.bottom-border{
+  border-bottom: 1px solid rgb(115, 114, 114);
 }
 
-.half{
-  height: 250px
+.full-border{
+  border: 1px solid rgb(115, 114, 114);
+  border-radius: 5px;
 }
 
-.onethird{
-  height: 150px
+.no-border{
+  border: 0px;
+}
+
+.onecol{
+  width: 100%;
+}
+
+.twocol{
+  width: 50%;
+}
+
+.threecol{
+  width: 33.34%;
 }
 
 .health{
-  background-color: var(--default-background);
+  background-color: var(--container-color);
   height: 20px;
   width: 100%;
+  border-radius: 10px;
 }
 
 .healthbar{
   background-color: var(--blood-color);
   height: 20px;
   width: 100%;
+  border-radius: 10px;
 }
 
 .fullscreen {
@@ -211,6 +216,6 @@ body{
   height: 100%;
 }
 
-.small{
+.small-txt{
   font-size: 10px;
 }
