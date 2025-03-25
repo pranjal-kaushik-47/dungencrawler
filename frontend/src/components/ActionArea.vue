@@ -1,21 +1,23 @@
 <template>
     <GameWindow class="full-border twocol" title="ACTIONS">
-        <button class="small-button" @click="testMovement('front')">⬆</button>
-        <button class="small-button" @click="testMovement('back')">⬇</button>
-        <button class="small-button" @click="testMovement('left')">⬅</button>
-        <button class="small-button" @click="testupdateHealth(10)">➡</button>
-        <button class="small-button" @click="testDamageu(10)">👁</button>
-        <button class="small-button" @click="testDamaged(10)">🖑</button>
+        <GameButton class="small-button" @click="testMovement('front')">⬆</GameButton>
+        <GameButton class="small-button" @click="testMovement('back')">⬇</GameButton>
+        <GameButton class="small-button" @click="testMovement('left')">⬅</GameButton>
+        <GameButton class="small-button" @click="testupdateHealth(10)">➡</GameButton>
+        <GameButton class="small-button" @click="testDamageu(10)">👁</GameButton>
+        <GameButton class="small-button" @click="testDamaged(10)">🖑</GameButton>
     </GameWindow>
 </template>
 <script>
 import { useStoryUpdate } from '@/store/storyUpdate';
 import GameWindow from './GameWindow.vue';
 import { useHealthStore } from '@/store/playerHealth';
+import GameButton from './GameButton.vue';
 
 export default {
     components: {
-        GameWindow
+        GameWindow,
+        GameButton
     },
     methods: {
         testDamaged(damage){
