@@ -1,6 +1,16 @@
 <template>
-    <textarea class="fullscreen" disabled=true></textarea>
+    <textarea class="fullscreen" disabled=true :value="storyText()"></textarea>
 </template>
 <script>
-export default {}
+import { useStoryUpdate } from '@/store/storyUpdate';
+
+
+export default {
+    methods: {
+        storyText(){
+            const story = useStoryUpdate()
+            return story.text
+        }
+    }
+}
 </script>
