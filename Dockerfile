@@ -5,6 +5,7 @@ RUN npm install
 COPY frontend/ .
 
 FROM vuebuilder AS vuebuilderprod
+COPY --from=vuebuilder package*.json ./
 RUN npm run build
 
 FROM nginx:alpine AS nginx

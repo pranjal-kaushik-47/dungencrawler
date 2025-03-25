@@ -1,0 +1,30 @@
+<template>
+    <GameWindow class="full-border twocol" title="ACTIONS">
+        <button class="small-button">⬆</button>
+        <button class="small-button">⬇</button>
+        <button class="small-button">⬅</button>
+        <button class="small-button">➡</button>
+        <button class="small-button" @click="testDamageu(10)">👁</button>
+        <button class="small-button" @click="testDamaged(10)">🖑</button>
+    </GameWindow>
+</template>
+<script>
+import GameWindow from './GameWindow.vue';
+import { useHealthStore } from '@/store/playerHealth';
+
+export default {
+    components: {
+        GameWindow
+    },
+    methods: {
+        testDamaged(damage){
+            const health = useHealthStore();
+            health.decHealthBy(damage);
+        },
+        testDamageu(damage){
+            const health = useHealthStore();
+            health.incHealthBy(damage);
+        },
+    }
+}
+</script>

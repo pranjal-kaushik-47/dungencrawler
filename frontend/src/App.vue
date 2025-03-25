@@ -3,12 +3,15 @@ import { ref } from 'vue';
 import HealthBar from './components/HealthBar.vue';
 import GameWindow from './components/GameWindow.vue';
 import StoryTextArea from './components/StoryTextArea.vue';
+import Nearby from './components/Nearby.vue';
+import ActionArea from './components/ActionArea.vue';
+import InventoryWindow from './components/InventoryWindow.vue';
+import EquipmentWindow from './components/EquipmentWindow.vue';
+import DescriptionWindow from './components/DescriptionWindow.vue';
 
-var health = ref(100);
-function testhealth(){
-    health.value -= 10;
-    console.log("----");
-}
+import {useHealthStore} from '@/store/playerHealth'
+
+const health = useHealthStore()
 </script>
 
 <template>
@@ -17,26 +20,19 @@ function testhealth(){
         <h1>Escape the Dungeon</h1>
     </div>
     <GameWindow class="no-border">
-        <HealthBar :health="health"></HealthBar>
+        <HealthBar :health="health.life"></HealthBar>
     </GameWindow>
-    <GameWindow class="bottom-border">
-        <StoryTextArea style="height: 300px;"></StoryTextArea>
-        <div class="flex-window">
-            <GameWindow class="full-border twocol" title="ACTIONS">
-                <button class="small-button">⬆</button>
-                <button class="small-button">⬇</button>
-                <button class="small-button">⬅</button>
-                <button class="small-button">➡</button>
-                <button class="small-button">👁</button>
-                <button class="small-button" @click="testhealth">🖑</button>
-            </GameWindow>
-            <GameWindow class="full-border twocol" title="SURROUNDINGS">
-                <button>Apple</button>
-                <button>Knife</button>
-                <button style="color: brown;">Guard(NPC)</button>
-                <button>Coin</button>
-            </GameWindow>
-        </div>
+    <GameWindow class="no-border">
+        <StoryTextArea style="height: 150px;"></StoryTextArea>
     </GameWindow>
+    <div style="display: flex;">
+        <ActionArea></ActionArea>
+        <Nearby></Nearby>
+    </div>
+    <div style="display: flex;">
+        <InventoryWindow></InventoryWindow>
+        <EquipmentWindow></EquipmentWindow>
+        <DescriptionWindow></DescriptionWindow>
+    </div>
 </body>
 </template>

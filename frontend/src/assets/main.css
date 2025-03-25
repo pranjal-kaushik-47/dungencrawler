@@ -94,10 +94,11 @@ body{
   background-color: var(--default-background-dark);
   border-bottom: 1px solid rgb(63, 62, 62);
   align-items: center;
+  padding: 10px;
 }
 
 .topic h1{
-  color: dimgray;
+  color: rgb(206, 206, 206);
   text-align: center;
   font-size: 30px;
   width: 100%;
