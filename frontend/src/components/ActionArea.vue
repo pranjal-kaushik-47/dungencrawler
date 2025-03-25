@@ -3,7 +3,7 @@
         <button class="small-button" @click="testMovement('front')">⬆</button>
         <button class="small-button" @click="testMovement('back')">⬇</button>
         <button class="small-button" @click="testMovement('left')">⬅</button>
-        <button class="small-button" @click="testMovement('right')">➡</button>
+        <button class="small-button" @click="testupdateHealth(10)">➡</button>
         <button class="small-button" @click="testDamageu(10)">👁</button>
         <button class="small-button" @click="testDamaged(10)">🖑</button>
     </GameWindow>
@@ -25,6 +25,10 @@ export default {
         testDamageu(damage){
             const health = useHealthStore();
             health.incHealthBy(damage);
+        },
+        testupdateHealth(val){
+            const health = useHealthStore();
+            health.changeHealthto(val);
         },
         testMovement(dir){
             const msg = `you have moved 1 step ${dir}`;
