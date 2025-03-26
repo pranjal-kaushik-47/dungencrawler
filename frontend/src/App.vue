@@ -22,7 +22,7 @@ const health = useHealthStore()
         <HealthBar :health="health.life"></HealthBar>
     </GameWindow>
     <GameWindow class="no-border">
-        <StoryTextArea style="height: 150px;"></StoryTextArea>
+        <StoryTextArea style="height: 130px;"></StoryTextArea>
     </GameWindow>
     <div style="display: flex;">
         <ActionArea></ActionArea>
