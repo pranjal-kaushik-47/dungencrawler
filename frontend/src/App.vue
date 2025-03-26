@@ -16,7 +16,7 @@ const health = useHealthStore()
 <template>
 <body>
     <div class="topic">
-        <h1>☠ Escape the Dungeon ☠</h1>
+        <h1>--- ☠ Escape the Dungeon ☠ ---</h1>
     </div>
     <GameWindow class="no-border">
         <HealthBar :health="health.life"></HealthBar>
