@@ -1,11 +1,7 @@
 :root {
-  --default-background: rgb(168, 168, 168);
-  --default-background-dark: rgb(94, 94, 94);
-  --button-background: transparent;
-  --button-active-hover-background: rgb(219, 215, 215);
-  --button-inactive-hover-background: transparent;
-  --blood-color: rgb(146, 5, 5);
-  --container-color: rgb(73, 73, 73);
-  --textarea-color: rgb(168, 168, 168);
-  
+  --primary-color: rgb(40, 206, 40);
+  --secondary-color: rgb(35, 169, 35);
+  --background-color: rgb(46, 46, 46);
+  --background-color-dark: rgb(24, 24, 24);
+  --font: "Courier New", Courier, monospace;
 }
