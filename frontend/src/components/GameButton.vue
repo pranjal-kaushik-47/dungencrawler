@@ -7,8 +7,8 @@ import { useActionDisable } from '@/store/gameStore';
 export default {
     computed: {
         isDisabled: function(){
-            const isDisable = useActionDisable();
-            return isDisable.isDisable
+            const action = useActionDisable();
+            return action.Locks != 0
         }
     }
 }

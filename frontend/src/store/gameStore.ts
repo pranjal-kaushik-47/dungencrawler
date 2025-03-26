@@ -2,22 +2,22 @@ import { defineStore } from "pinia";
 import { ref } from "vue";
 
 export const useActionDisable = defineStore("actionDisable", () => {
-        const isDisable = ref(false);
+        const Locks = ref(0);
 
         function disable(){
             console.log("made disable");
-            isDisable.value = true
+            Locks.value += 1
         }
 
         function enable(){
             console.log("made enable");
-            isDisable.value = false
+            Locks.value -= 1
         }
 
         function status(){
-            return isDisable.value
+            return Locks.value
         }
 
-        return {isDisable, disable, enable, status}
+        return {Locks, disable, enable, status}
     }
 )

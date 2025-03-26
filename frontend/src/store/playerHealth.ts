@@ -40,7 +40,7 @@ export const useHealthStore = defineStore(
         };
 
         function changeHealthto(value: number){
-            console.log(disabledState.isDisable);
+            console.log(disabledState.Locks);
             disabledState.disable();
             const finalValue = value;
             const updateHealth = () => {

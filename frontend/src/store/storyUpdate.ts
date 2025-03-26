@@ -13,7 +13,6 @@ export const useStoryUpdate = defineStore("story", () => {
             const typeCharacter = () => {
                 if (index < newText.length){
                     text.value += newText[index];
-                    console.log(text.value, '----', newText[index], '----', index);
                     index++;
                     setTimeout(typeCharacter, 45)
                 } else {

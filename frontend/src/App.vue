@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { ref } from 'vue';
 import HealthBar from './components/HealthBar.vue';
 import GameWindow from './components/GameWindow.vue';
 import StoryTextArea from './components/StoryTextArea.vue';
