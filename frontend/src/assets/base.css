@@ -1,7 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Bytesized&family=Silkscreen:wght@400;700&display=swap');
+
 :root {
   --primary-color: rgb(40, 206, 40);
   --secondary-color: rgb(35, 169, 35);
   --background-color: rgb(46, 46, 46);
   --background-color-dark: rgb(24, 24, 24);
-  --font: "Courier New", Courier, monospace;
+  --font: "Silkscreen", sans-serif;
+  --health-detail-color: brown;
 }

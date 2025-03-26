@@ -17,7 +17,6 @@ export default {
     },
     methods: {
         displayDescription: function(){
-            console.log("0000");
             const descArea = useDescription();
             descArea.updateDescription(this.description)
         }

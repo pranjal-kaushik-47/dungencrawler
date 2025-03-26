@@ -1,6 +1,7 @@
 <template>
     <div class="health" id="health">
         <div class="healthbar" id="healthbar" :style="{width: healthLeft + '%'}"></div>
+        <div class="health-details">{{ Math.floor(healthLeft) }}/100</div>
     </div>
 </template>
 

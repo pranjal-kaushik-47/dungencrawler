@@ -16,13 +16,13 @@ const health = useHealthStore()
 <template>
 <body>
     <div class="topic">
-        <h1>Escape the Dungeon</h1>
+        <h1>☠ Escape the Dungeon ☠</h1>
     </div>
     <GameWindow class="no-border">
         <HealthBar :health="health.life"></HealthBar>
     </GameWindow>
     <GameWindow class="no-border">
-        <StoryTextArea style="height: 150px;"></StoryTextArea>
+        <StoryTextArea style="height: 130px;"></StoryTextArea>
     </GameWindow>
     <div style="display: flex;">
         <ActionArea></ActionArea>
