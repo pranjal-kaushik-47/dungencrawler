@@ -1,6 +1,6 @@
 import { defineStore } from "pinia";
 import { ref } from "vue";
-import { useActionDisable } from "./gameStore";
+import { useActionDisable } from "./actionLockStore";
 
 export const useHealthStore = defineStore(
     "health", () => {

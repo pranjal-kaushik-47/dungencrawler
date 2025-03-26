@@ -8,7 +8,7 @@ import InventoryWindow from './components/InventoryWindow.vue';
 import EquipmentWindow from './components/EquipmentWindow.vue';
 import DescriptionWindow from './components/DescriptionWindow.vue';
 
-import {useHealthStore} from '@/store/playerHealth'
+import {useHealthStore} from '@/store/playerHealthStore'
 
 const health = useHealthStore()
 </script>

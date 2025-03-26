@@ -1,14 +1,25 @@
 <template>
-    <button :disabled="isDisabled"><slot></slot></button>
+    <button :disabled="isDisabled" @mouseover="displayDescription()"><slot></slot></button>
 </template>
 <script>
-import { useActionDisable } from '@/store/gameStore';
+import { useActionDisable } from '@/store/actionLockStore';
+import { useDescription } from '@/store/descriptionStore';
 
 export default {
+    props: {
+        description: String
+    },
     computed: {
         isDisabled: function(){
             const action = useActionDisable();
             return action.Locks != 0
+        }
+    },
+    methods: {
+        displayDescription: function(){
+            console.log("0000");
+            const descArea = useDescription();
+            descArea.updateDescription(this.description)
         }
     }
 }
