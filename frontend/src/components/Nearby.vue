@@ -1,9 +1,9 @@
 <template>
     <GameWindow class="full-border twocol" title="NEARBY">
-        <GameButton class="small-button" @click="addtoInventory(1, '🍗', 'chicken leg')" description="chicken leg">🍗</GameButton>
-        <GameButton class="small-button" @click="addtoInventory(2, '🎲', 'dice')" description="dice">🎲</GameButton>
-        <GameButton class="small-button" @click="addtoInventory(3, '🐀', 'cute mouse')" description="cute mouse">🐀</GameButton>
-        <GameButton class="small-button" @click="addtoInventory(3, '🐀', 'cute mouse')" description="cute mouse">🐀</GameButton>
+        <GameButton class="small-button" @click="addtoInventory(1, '🍗', 'The only drumstick that never plays music but always hits the spot!')" description="The only drumstick that never plays music but always hits the spot!">🍗</GameButton>
+        <GameButton class="small-button" @click="addtoInventory(2, '🎲', 'Dice: The original RNGesus—now in pocket size!')" description="Dice: The original RNGesus—now in pocket size!">🎲</GameButton>
+        <GameButton class="small-button" @click="addtoInventory(3, '🐀', 'A tiny cheese-powered ninja with big dreams!')" description="A tiny cheese-powered ninja with big dreams!">🐀</GameButton>
+        <GameButton class="small-button" @click="addtoInventory(3, '🐀', 'A tiny cheese-powered ninja with big dreams!')" description="A tiny cheese-powered ninja with big dreams!">🐀</GameButton>
     </GameWindow>
 </template>
 <script>

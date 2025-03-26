@@ -1,6 +1,8 @@
 <template>
-    <GameWindow class="threecol full-border" style="height: 200px;" title="DESCRIPTION">
-        {{ description }}
+    <GameWindow class="threecol full-border" style="height: 200px" title="DESCRIPTION">
+        <div style="padding: 10px;">
+            {{ description }}
+        </div>
     </GameWindow>
 </template>
 <script>
