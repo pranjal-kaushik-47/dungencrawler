@@ -2,7 +2,7 @@
     <textarea class="fullscreen" Locks=true :value="storyText()"></textarea>
 </template>
 <script>
-import { useStoryUpdate } from '@/store/storyUpdate';
+import { useStoryUpdate } from '@/store/storyPointStore';
 
 
 export default {
