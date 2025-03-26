@@ -56,11 +56,13 @@ button:hover {
 }
 
 button:disabled {
+  background-color: var(--background-color-dark);
+  border-color: var(--background-color-dark);
   text-decoration: line-through;
 }
 
 button:disabled:hover {
-  border: 2px solid var(--secondary-color);
+  border: 2px solid var(--background-color-dark);
 }
 
 body{
