@@ -1,5 +1,5 @@
 <template>
-    <textarea class="fullscreen" isDisable=true :value="storyText()"></textarea>
+    <textarea class="fullscreen" Locks=true :value="storyText()"></textarea>
 </template>
 <script>
 import { useStoryUpdate } from '@/store/storyUpdate';
