@@ -9,14 +9,16 @@ import EquipmentWindow from './components/EquipmentWindow.vue';
 import DescriptionWindow from './components/DescriptionWindow.vue';
 
 import {useHealthStore} from '@/store/playerHealthStore'
+import GameButton from './components/GameButton.vue';
 
 const health = useHealthStore()
 </script>
 
 <template>
 <body>
-    <div class="topic">
-        <h1>☠ Escape the Dungeon ☠</h1>
+    <div class="topic flex-window">
+        <h1>--- ☠ Escape the Dungeon ☠ ---</h1>
+        <GameButton style="width: 5%; margin: 94%; position: absolute;" :canBeDisabled="false">⟳</GameButton>
     </div>
     <GameWindow class="no-border">
         <HealthBar :health="health.life"></HealthBar>
