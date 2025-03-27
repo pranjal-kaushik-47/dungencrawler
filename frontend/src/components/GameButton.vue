@@ -7,12 +7,20 @@ import { useDescription } from '@/store/descriptionStore';
 
 export default {
     props: {
-        description: String
+        description: String,
+        canBeDisabled: {
+            type: Boolean,
+            default: true
+        }
     },
     computed: {
         isDisabled: function(){
-            const action = useActionDisable();
-            return action.Locks != 0
+            if(this.canBeDisabled){
+                const action = useActionDisable();
+                return action.Locks != 0
+            } else {
+                return false
+            }
         }
     },
     methods: {
