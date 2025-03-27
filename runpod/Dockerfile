@@ -6,18 +6,18 @@ ENV DEBIAN_FRONTEND=noninteractive
 WORKDIR /
 
 # Update and upgrade the system packages (Worker Template)
-COPY builder/setup.sh /setup.sh
+COPY runpod/builder/setup.sh /setup.sh
 RUN /bin/bash /setup.sh && \
     rm /setup.sh
 
 # Install Python dependencies (Worker Template)
-COPY builder/requirements.txt /requirements.txt
+COPY runpod/builder/requirements.txt /requirements.txt
 RUN python3 -m pip install --upgrade pip && \
     python3 -m pip install --upgrade -r /requirements.txt --no-cache-dir && \
     rm /requirements.txt
 
 # Add src files (Worker Template)
-ADD src .
+ADD runpod/src .
 
 # Whether to download the model into /runpod-volume or not.
 ARG DOWNLOAD_MODEL=
