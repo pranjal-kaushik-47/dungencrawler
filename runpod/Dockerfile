@@ -13,7 +13,7 @@ ARG MODEL_NAME=mistralai/Mistral-7B-Instruct-v0.2
 ARG TOKENIZER_NAME=mistralai/Mistral-7B-Instruct-v0.2
 ARG DEVICE=cuda
 ARG MODEL_DIR=/model
-ARG HF_TOKEN=null
+# ARG HF_TOKEN=null
 
 ## We set up our env variables using those arguments 
 
@@ -21,7 +21,7 @@ ENV MODEL_NAME=${MODEL_NAME}
 ENV TOKENIZER_NAME=${TOKENIZER_NAME}
 ENV DEVICE=${DEVICE}
 ENV MODEL_DIR=/model
-ENV HF_TOKEN=${HF_TOKEN}
+# ENV HF_TOKEN=${HF_TOKEN}
 
 ## Copy the requirements txt file to install the depdendencies 
 COPY runpod/requirements.txt /requirements.txt
