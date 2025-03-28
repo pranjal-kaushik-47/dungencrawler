@@ -43,8 +43,9 @@ RUN --mount=type=secret,id=HF_TOKEN \
         export HF_TOKEN=$(cat /run/secrets/HF_TOKEN); \
         MASKED_HF_TOKEN="${HF_TOKEN:0:4}****${HF_TOKEN: -4}"; \
         echo "Using HF_TOKEN: $MASKED_HF_TOKEN"; \
-    fi && \
-    if [ -n "$MODEL_NAME" ]; then \
+    fi
+
+RUN if [ -n "$MODEL_NAME" ]; then \
         python3 /download_hf_model.py; \
     fi
 
