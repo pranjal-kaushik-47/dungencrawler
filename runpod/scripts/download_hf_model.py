@@ -1,14 +1,13 @@
 import os
 
 from huggingface_hub import login, snapshot_download
-from src.constants import DEFAULT_MODEL_DIR, DEFAULT_MODEL_NAME
 
 HF_TOKEN = os.environ.get("HF_TOKEN", "")
 
 login(token=HF_TOKEN, add_to_git_credential=True)
 
 
-def download_model_to_folder(model_id: str = DEFAULT_MODEL_NAME, model_dir: str = DEFAULT_MODEL_DIR):
+def download_model_to_folder(model_id: str , model_dir: str):
     os.makedirs(model_dir, exist_ok=True)
     
     snapshot_download(
