@@ -17,8 +17,7 @@ const health = useHealthStore()
 <template>
 <body>
     <div class="topic flex-window">
-        <h1>--- ☠ Escape the Dungeon ☠ ---</h1>
-        <GameButton style="width: 5%; margin: 94%; position: absolute;" :canBeDisabled="false">⟳</GameButton>
+        <h1>☠ Escape the Dungeon ☠</h1>
     </div>
     <GameWindow class="no-border">
         <HealthBar :health="health.life"></HealthBar>
@@ -26,11 +25,11 @@ const health = useHealthStore()
     <GameWindow class="no-border">
         <StoryTextArea style="height: 130px;"></StoryTextArea>
     </GameWindow>
-    <div style="display: flex;">
+    <div class="flex-window">
         <ActionArea></ActionArea>
         <Nearby></Nearby>
     </div>
-    <div style="display: flex;">
+    <div class="flex-window">
         <InventoryWindow></InventoryWindow>
         <EquipmentWindow></EquipmentWindow>
         <DescriptionWindow></DescriptionWindow>

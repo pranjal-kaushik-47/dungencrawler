@@ -216,3 +216,21 @@ body{
 .small-txt{
   font-size: 10px;
 }
+
+/* mobile view */
+
+@media (max-width: 400px){
+
+  .flex-window{
+    display: block;
+  }
+
+  .twocol{
+    width: 90%;
+  }
+  
+  .threecol{
+    width: 90%;
+  }
+
+}
