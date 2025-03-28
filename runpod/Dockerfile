@@ -1,75 +1,51 @@
-# Base image
-FROM ghcr.io/huggingface/text-generation-inference:latest
-ENV DEBIAN_FRONTEND=noninteractive
+## Start with a base Image. We are using PyTorch v2.2 with Cuda v12.1 runtime
+## when you will be using this image, it will contain all the essential cuda builds and dependencies
+## so that we do not have to do it from our side. 
 
-# Set the working directory
+FROM pytorch/pytorch:2.2.1-cuda12.1-cudnn8-runtime
+
 WORKDIR /
 
-# Update and upgrade the system packages (Worker Template)
-COPY runpod/builder/setup.sh /setup.sh
-RUN /bin/bash /setup.sh && \
-    rm /setup.sh
+## We define this arguments that can be used during building the model
+## if no args are defined then we will be using the default values 
 
-# Install Python dependencies (Worker Template)
-COPY runpod/builder/requirements.txt /requirements.txt
-RUN python3 -m pip install --upgrade pip && \
-    python3 -m pip install --upgrade -r /requirements.txt --no-cache-dir && \
-    rm /requirements.txt
+ARG MODEL_NAME=mistralai/Mistral-7B-Instruct-v0.2
+ARG TOKENIZER_NAME=mistralai/Mistral-7B-Instruct-v0.2
+ARG DEVICE=cuda
+ARG MODEL_DIR=/model
+ARG HF_TOKEN=null
 
-# Add src files (Worker Template)
-ADD runpod/src .
+## We set up our env variables using those arguments 
 
-# Whether to download the model into /runpod-volume or not.
-ARG DOWNLOAD_MODEL=
-ENV DOWNLOAD_MODEL=$DOWNLOAD_MODEL
+ENV MODEL_NAME=${MODEL_NAME}
+ENV TOKENIZER_NAME=${TOKENIZER_NAME}
+ENV DEVICE=${DEVICE}
+ENV MODEL_DIR=/model
+ENV HF_TOKEN=${HF_TOKEN}
 
-# Set environment variables
-ARG HF_MODEL_ID=
-ENV HF_MODEL_ID=$HF_MODEL_ID
+## Copy the requirements txt file to install the depdendencies 
+COPY requirements.txt /requirements.txt
+COPY scripts/download_hf_model.py /download_hf_model.py 
 
-ARG HF_MODEL_REVISION=
-ENV HF_MODEL_REVISION=$HF_MODEL_REVISION
+## Now we install the dependencies and download the model to /model folder
 
-ARG SM_NUM_GPUS=
-ENV SM_NUM_GPUS=$SM_NUM_GPUS
+RUN python3 -m pip install --upgrade -r /requirements.txt --no-cache-dir && \
+    --mount=type=secret,id=HF_TOKEN,required=false \
+    if [ -f /run/secrets/HF_TOKEN ]; then \
+    export HF_TOKEN=$(cat /run/secrets/HF_TOKEN); \
+    fi && \
+    if [ -n "$MODEL_NAME" ]; then \
+    python3 /download_hf_model.py; \
+    fi
 
-ARG HF_MODEL_QUANTIZE=
-ENV HF_MODEL_QUANTIZE=$HF_MODEL_QUANTIZE
+## Some times, the download might stuck and if that is happening then you can comment out this RUN command and the run the following command:
+## However in the step: COPY ./model /model you are required to copy or download your HuggingFace model
+## to ./model folder, other wise it can not access the models and face error. Now you can uncomment this below code and comment out the above one for building your container. 
 
-ARG HF_MODEL_TRUST_REMOTE_CODE=
-ENV HF_MODEL_TRUST_REMOTE_CODE=$HF_MODEL_TRUST_REMOTE_CODE
+# RUN python3 -m pip install -r /requirements.txt 
+# COPY ./model /model
 
-ARG MODEL_BASE_PATH="/runpod-volume/"
-ENV MODEL_BASE_PATH=$MODEL_BASE_PATH
+## Copy the src files to /src folder and run
 
-ARG HUGGING_FACE_HUB_TOKEN=
-ENV HUGGING_FACE_HUB_TOKEN=$HUGGING_FACE_HUB_TOKEN
-
-ARG HF_MAX_TOTAL_TOKENS=
-ENV HF_MAX_TOTAL_TOKENS=$HF_MAX_TOTAL_TOKENS
-
-ARG HF_MAX_INPUT_LENGTH=
-ENV HF_MAX_INPUT_LENGTH=$HF_MAX_INPUT_LENGTH
-
-ARG HF_MAX_BATCH_TOTAL_TOKENS=
-ENV HF_MAX_BATCH_TOTAL_TOKENS=$HF_MAX_BATCH_TOTAL_TOKENS
-
-ARG HF_MAX_BATCH_PREFILL_TOKENS=
-ENV HF_MAX_BATCH_PREFILL_TOKENS=$HF_MAX_BATCH_PREFILL_TOKENS
-
-# Prepare the hugging face directories for caching datasets, models, and more.
-ENV HF_DATASETS_CACHE="/runpod-volume/huggingface-cache/datasets"
-ENV HUGGINGFACE_HUB_CACHE="/runpod-volume/huggingface-cache/hub"
-ENV TRANSFORMERS_CACHE="/runpod-volume/huggingface-cache/hub"
-
-# Conditionally download the model weights based on DOWNLOAD_MODEL
-RUN if [ "$DOWNLOAD_MODEL" = "1" ]; then \
-    text-generation-server download-weights $HF_MODEL_ID; \
-  fi
-
-# Quick temporary updates
-RUN curl -sS https://bootstrap.pypa.io/get-pip.py | python3.10
-RUN python3.10 -m pip install git+https://github.com/runpod/runpod-python@a1#egg=runpod --compile
-RUN python3.10 -m pip install text_generation
-
-ENTRYPOINT ["./entrypoint.sh"]
+COPY src /src
+CMD ["python3", "-u", "/src/handler.py"]
