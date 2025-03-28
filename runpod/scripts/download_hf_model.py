@@ -4,7 +4,7 @@ from huggingface_hub import login, snapshot_download
 
 HF_TOKEN = os.getenv("HF_TOKEN")
 
-login(token=HF_TOKEN)
+login(token=HF_TOKEN, add_to_git_credential=True)
 
 
 def download_model_to_folder(model_id: str, model_dir: str):
