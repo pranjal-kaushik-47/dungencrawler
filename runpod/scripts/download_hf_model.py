@@ -5,6 +5,10 @@ from huggingface_hub import snapshot_download
 
 def download_model_to_folder(model_id: str, model_dir: str):
     os.makedirs(model_dir, exist_ok=True)
+
+    print("model_id", model_id, flush=True)
+    print("model_dir", model_dir, flush=True)
+    
     snapshot_download(
         model_id,
         local_dir=model_dir,
@@ -14,7 +18,7 @@ def download_model_to_folder(model_id: str, model_dir: str):
 
 if __name__ == "__main__":
 
-    # Run this script inside folder deploy_runpod like this
+    # Run this script inside folder runpod like this
     # python3 scripts/download_hf_model.py
 
     download_model_to_folder(
