@@ -1,13 +1,14 @@
 import os
 
-from huggingface_hub import snapshot_download
+from huggingface_hub import login, snapshot_download
+
+HF_TOKEN = os.getenv("HF_TOKEN")
+
+login(token=HF_TOKEN)
 
 
 def download_model_to_folder(model_id: str, model_dir: str):
     os.makedirs(model_dir, exist_ok=True)
-
-    print("model_id", model_id, flush=True)
-    print("model_dir", model_dir, flush=True)
     
     snapshot_download(
         model_id,
