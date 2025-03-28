@@ -2,7 +2,7 @@ import json
 import random
 from functools import lru_cache
 
-from ..utils.mongodb_utils import MongoDBUtil  # type: ignore
+from .mongodb_utils import MongoDBUtil  # type: ignore
 
 
 def get_all_documents(collection_name):
