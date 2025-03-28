@@ -1,3 +1,6 @@
+new:
+	docker compose up --build -d
+
 db:
 	docker exec -it mongo /bin/bash
 
