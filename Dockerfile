@@ -17,5 +17,6 @@ FROM python:3.12-slim AS fastapibuilder
 WORKDIR /app
 COPY server/requirements.txt ./
 RUN pip install --upgrade pip
+RUN --mount=type=cache,target=/root/.cache 
 RUN pip install -r requirements.txt
 COPY server/ ./server/
