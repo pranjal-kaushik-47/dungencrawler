@@ -38,12 +38,12 @@ RUN python3 -m pip install --upgrade -r /requirements.txt --no-cache-dir
 #         python3 /download_hf_model.py; \
 #     fi
 
-# RUN --mount=type=secret,id=HF_TOKEN \
-#     if [ -f /run/secrets/HF_TOKEN ]; then \
-#         export HF_TOKEN=$(cat /run/secrets/HF_TOKEN); \
-#         MASKED_HF_TOKEN="${HF_TOKEN:0:4}****${HF_TOKEN: -4}"; \
-#         echo "Using HF_TOKEN: $MASKED_HF_TOKEN"; \
-#     fi
+RUN --mount=type=secret,id=HF_TOKEN \
+    if [ -f /run/secrets/HF_TOKEN ]; then \
+        export HF_TOKEN=$(cat /run/secrets/HF_TOKEN); \
+        MASKED_HF_TOKEN="${HF_TOKEN:0:4}****${HF_TOKEN: -4}"; \
+        echo "Using HF_TOKEN: $MASKED_HF_TOKEN"; \
+    fi
 
 RUN if [ -n "$MODEL_NAME" ]; then \
         python3 /download_hf_model.py; \
