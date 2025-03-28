@@ -13,7 +13,7 @@ ARG MODEL_NAME=mistralai/Mistral-7B-Instruct-v0.2
 ARG TOKENIZER_NAME=mistralai/Mistral-7B-Instruct-v0.2
 ARG DEVICE=cuda
 ARG MODEL_DIR=/model
-# ARG HF_TOKEN=null
+ARG HF_TOKEN=null
 
 ## We set up our env variables using those arguments 
 
@@ -21,7 +21,7 @@ ENV MODEL_NAME=${MODEL_NAME}
 ENV TOKENIZER_NAME=${TOKENIZER_NAME}
 ENV DEVICE=${DEVICE}
 ENV MODEL_DIR=/model
-# ENV HF_TOKEN=${HF_TOKEN}
+ENV HF_TOKEN=${HF_TOKEN}
 
 ## Copy the requirements txt file to install the depdendencies 
 COPY runpod/requirements.txt /requirements.txt
@@ -30,13 +30,13 @@ COPY runpod/scripts/download_hf_model.py /download_hf_model.py
 ## Now we install the dependencies and download the model to /model folder
 RUN python3 -m pip install --upgrade -r /requirements.txt --no-cache-dir
 
-# RUN --mount=type=secret,id=HF_TOKEN \
-#     if [ -f /run/secrets/HF_TOKEN ]; then \
-#         export HF_TOKEN=$(cat /run/secrets/HF_TOKEN); \
-#     fi && \
-#     if [ -n "$MODEL_NAME" ]; then \
-#         python3 /download_hf_model.py; \
-#     fi
+RUN --mount=type=secret,id=HF_TOKEN \
+    if [ -f /run/secrets/HF_TOKEN ]; then \
+        export HF_TOKEN=$(cat /run/secrets/HF_TOKEN); \
+    fi && \
+    if [ -n "$MODEL_NAME" ]; then \
+        python3 /download_hf_model.py; \
+    fi
 
 # RUN --mount=type=secret,id=HF_TOKEN \
 #     if [ -f /run/secrets/HF_TOKEN ]; then \
@@ -45,9 +45,9 @@ RUN python3 -m pip install --upgrade -r /requirements.txt --no-cache-dir
 #         echo "Using HF_TOKEN: $MASKED_HF_TOKEN"; \
 #     fi
 
-RUN if [ -n "$MODEL_NAME" ]; then \
-        python3 /download_hf_model.py; \
-    fi
+# RUN if [ -n "$MODEL_NAME" ]; then \
+#         python3 /download_hf_model.py; \
+#     fi
 
 ## Some times, the download might stuck and if that is happening then you can comment out this RUN command and the run the following command:
 ## However in the step: COPY ./runpod/model /model you are required to copy or download your HuggingFace model
