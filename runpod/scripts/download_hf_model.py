@@ -2,11 +2,11 @@ import os
 
 from huggingface_hub import login, snapshot_download
 
-HF_TOKEN = os.getenv("HF_TOKEN", "")
+HF_TOKEN = os.environ.get("HF_TOKEN", "")
 
-print("---------------------------------")
-print(HF_TOKEN[-5:])
-print("---------------------------------")
+print("---------------------------------", flush= True)
+print(HF_TOKEN[-5:], flush=True)
+print("---------------------------------", flush= True)
 
 login(token=HF_TOKEN, add_to_git_credential=True)
 
