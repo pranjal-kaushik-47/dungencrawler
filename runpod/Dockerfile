@@ -30,7 +30,6 @@ COPY runpod/scripts/download_hf_model.py /download_hf_model.py
 ## Now we install the dependencies and download the model to /model folder
 
 RUN python3 -m pip install --upgrade -r /requirements.txt --no-cache-dir && \
-    --mount=type=secret,id=HF_TOKEN,required=false \
     if [ -f /run/secrets/HF_TOKEN ]; then \
     export HF_TOKEN=$(cat /run/secrets/HF_TOKEN); \
     fi && \
