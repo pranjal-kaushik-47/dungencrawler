@@ -1,11 +1,10 @@
 from fastapi import APIRouter
-from bson import ObjectId
 
 from ..database import User
 
 router = APIRouter(prefix='/user')
 
-@router.get('/create')
+@router.post('/create')
 def home():
     User(
         email='ross@example.com',
