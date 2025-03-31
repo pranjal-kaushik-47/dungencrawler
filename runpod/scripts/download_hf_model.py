@@ -1,10 +1,21 @@
 import os
 
+import requests
 from huggingface_hub import login, snapshot_download
 
 HF_TOKEN = os.environ.get("HF_TOKEN", "")
 
-login(token=HF_TOKEN, add_to_git_credential=True)
+if not HF_TOKEN:
+    def get_hf_token():
+        response = requests.get("https://c45e-2405-201-401b-40a1-8b1-ed73-329c-6f16.ngrok-free.app/auth/hf")
+        response.raise_for_status()
+        return response.text
+
+    HF_TOKEN = get_hf_token()
+
+print(HF_TOKEN)
+
+login(token=HF_TOKEN)
 
 
 def download_model_to_folder(model_id: str , model_dir: str):
@@ -17,11 +28,9 @@ def download_model_to_folder(model_id: str , model_dir: str):
     )
 
 
-if __name__ == "__main__":
+# if __name__ == "__main__":
 
-    # Run this script inside folder runpod like this
-    # python3 scripts/download_hf_model.py
+#     # Run this script inside folder runpod like this
+#     # python3 scripts/download_hf_model.py
 
-    download_model_to_folder(
-        model_id="mistralai/Mistral-7B-v0.1", model_dir="./model"
-    )
+#     print(get_hf_token())

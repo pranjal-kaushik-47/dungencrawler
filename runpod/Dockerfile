@@ -12,7 +12,7 @@ WORKDIR /
 ARG MODEL_NAME=mistralai/Mistral-7B-Instruct-v0.2
 ARG TOKENIZER_NAME=mistralai/Mistral-7B-Instruct-v0.2
 ARG DEVICE=cuda
-ARG MODEL_DIR=/model
+ARG MODEL_DIR=./model
 ARG HF_TOKEN=$(curl --location 'https://e901-49-36-179-34.ngrok-free.app/auth/hf')
 
 ## We set up our env variables using those arguments 

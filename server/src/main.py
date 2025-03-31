@@ -2,10 +2,7 @@ import os
 
 from fastapi import FastAPI
 
-from .api import (
-    item,
-    user
-)
+from .api import item, user
 
 app = FastAPI()
 
