@@ -14,7 +14,7 @@ services:
     environment:
       - db=nosqldb
     env_file:
-      - .env
+      - frontend/.env
   
   proxy:
     build:
@@ -27,7 +27,7 @@ services:
       - NGINX_HOST=localhost
       - NGINX_PORT=80
     env_file:
-      - .env
+      - frontend/.env
   
   backend:
     build:
@@ -40,7 +40,7 @@ services:
     volumes:
       - ./server:/app/server
     env_file:
-      - .env
+      - server/.env
     environment:
       - db=nosqldb
   
