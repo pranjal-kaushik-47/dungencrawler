@@ -2,17 +2,12 @@ import os
 
 from huggingface_hub import login, snapshot_download
 
-HF_TOKEN = os.environ.get("HF_TOKEN", "THIS IS BULLSHIT")
-
-print("---------------------------------", flush= True)
-print(os.environ)
-print(HF_TOKEN, flush=True)
-print("---------------------------------", flush= True)
+HF_TOKEN = os.environ.get("HF_TOKEN", "")
 
 login(token=HF_TOKEN, add_to_git_credential=True)
 
 
-def download_model_to_folder(model_id: str, model_dir: str):
+def download_model_to_folder(model_id: str , model_dir: str):
     os.makedirs(model_dir, exist_ok=True)
     
     snapshot_download(
