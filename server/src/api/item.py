@@ -17,7 +17,6 @@ class ItemTypePayload(BaseModel):
 
 @router.post('/type/create')
 async def itemtypepost(item_type: ItemTypePayload):
-    print(item_type, flush=True)
     it = ItemTypes(
         name=item_type.name,
         icon=item_type.icon,
